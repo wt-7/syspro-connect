@@ -1,3 +1,4 @@
+from typing import Any
 import pandas as pd
 from sqlalchemy import text
 from sqlalchemy.engine.cursor import CursorResult
@@ -44,6 +45,12 @@ class Syspro:
         Return a CursorResult from an SQL query
         """
         return self.cnxn.execute(text(query), **params)
+
+    def get_single(self, query: str, **params) -> Any:
+        """
+        Return a single value from an SQL query. No error handling.
+        """
+        return self.cnxn.execute(text(query), **params).scalar()
 
 
 ################################################################################
