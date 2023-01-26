@@ -22,40 +22,6 @@ Streamlit cannot cache the Syspro instance, so use the get_df function instead
 ################################################################################
 
 
-class Syspro:
-    """
-    Syspro 8 API
-    """
-
-    def __init__(self):
-        self.cnxn = _init_connection()
-
-    def get_df(
-        self, sql: str, *, params=None, stripped=True, dtypes: dict = {}
-    ) -> pd.DataFrame:
-        """
-        Return a dataframe from an SQL query
-        """
-
-        df = pd.read_sql_query(sql, self.cnxn, params=params, dtype=dtypes)
-        return df if not stripped else _strip_obj_cols(df)
-
-    def get_query(self, query: str, **params) -> CursorResult:
-        """
-        Return a CursorResult from an SQL query
-        """
-        return self.cnxn.execute(text(query), **params)
-
-    def get_single(self, query: str, **params) -> Any:
-        """
-        Return a single value from an SQL query. No error handling.
-        """
-        return self.cnxn.execute(text(query), **params).scalar()
-
-
-################################################################################
-
-
 def get_df(sql_str: str, *, stripped=True, dtypes: dict = {}) -> pd.DataFrame:
     """
     Return a dataframe from an SQL query
@@ -71,6 +37,13 @@ def get_query(query: str) -> CursorResult:
     """
     cnxn = _init_connection()
     return cnxn.execute(text(query))
+
+
+def get_single(self, query: str, **params) -> Any:
+    """
+    Return a single value from an SQL query. No error handling.
+    """
+    return self.cnxn.execute(text(query), **params).scalar()
 
 
 ################################################################################
