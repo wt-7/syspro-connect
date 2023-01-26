@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "syspro-connect"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["w-ejt <97180065+w-ejt@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{include = "syspro_connect", from = "src"}]
+packages = [{ include = "syspro_connect", from = "src" }]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 pandas = "^1.5.3"
 sqlalchemy = "^1.4.46"
 pyodbc = "^4.0.35"
