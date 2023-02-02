@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "syspro-connect"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["w-ejt <97180065+w-ejt@users.noreply.github.com>"]
 readme = "README.md"
